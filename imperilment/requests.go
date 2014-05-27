@@ -7,7 +7,7 @@ import (
     "log"
 )
 
-func (e *Engine) GetLeaderBoard() (board []LeaderBoardEntry, ok bool) {
+func (e *Engine) GetOverallLeaderBoard() (board []LeaderBoardEntry, ok bool) {
     response, err := http.Get(e.OverallLeaderBoardUrl)
     if err != nil {
         log.Fatal(err)

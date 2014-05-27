@@ -8,7 +8,7 @@ import (
 func main() {
     engine := imperilment.New("http://imperilment.freerunningtech.com")
 
-    board, ok := engine.GetLeaderBoard()
+    board, ok := engine.GetOverallLeaderBoard()
     if !ok {
         fmt.Println("Could not get leader board from ", engine.OverallLeaderBoardUrl, ".")
         return
