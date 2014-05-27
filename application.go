@@ -6,10 +6,11 @@ import (
 )
 
 func main() {
-    url := "http://imperilment.freerunningtech.com/leader_board/overall.json"
-    board, ok := imperilment.GetLeaderBoard(url)
+    engine := imperilment.New("http://imperilment.freerunningtech.com")
+
+    board, ok := imperilment.GetLeaderBoard(engine.OverallLeaderBoardUrl)
     if !ok {
-        fmt.Println("Could not get leader board from ", url, ".")
+        fmt.Println("Could not get leader board from ", engine.OverallLeaderBoardUrl, ".")
         return
     }
     for _, entry := range board {
