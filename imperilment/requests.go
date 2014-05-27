@@ -7,8 +7,8 @@ import (
     "log"
 )
 
-func GetLeaderBoard(url string) (board []LeaderBoardEntry, ok bool) {
-    response, err := http.Get(url)
+func (e *Engine) GetLeaderBoard() (board []LeaderBoardEntry, ok bool) {
+    response, err := http.Get(e.OverallLeaderBoardUrl)
     if err != nil {
         log.Fatal(err)
         return board, false
