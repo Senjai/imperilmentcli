@@ -8,7 +8,15 @@ import (
 )
 
 func (e *Engine) GetOverallLeaderBoard() (board []LeaderBoardEntry, ok bool) {
-    response, err := http.Get(e.OverallLeaderBoardUrl)
+    return e.getBoard(e.OverallLeaderBoardUrl)
+}
+
+func (e *Engine) GetMoneyLeaderBoard() (board []LeaderBoardEntry, ok bool) {
+    return e.getBoard(e.MoneyLeaderBoardUrl)
+}
+
+func (e *Engine) getBoard(url string) (board []LeaderBoardEntry, ok bool) {
+    response, err := http.Get(url)
     if err != nil {
         log.Fatal(err)
         return board, false
@@ -20,3 +28,4 @@ func (e *Engine) GetOverallLeaderBoard() (board []LeaderBoardEntry, ok bool) {
     json.Unmarshal(body, &board)
     return board, true
 }
+
