@@ -10,12 +10,6 @@ type LeaderBoardEntry struct {
     Third int
 }
 
-type User struct {
-    Email string
-    First_Name string
-    Last_Name string
-}
-
 func (b *LeaderBoardEntry) String() string {
     return fmt.Sprintf(
         "%s, %s: %v Gold Trophies, %v Silver Trophies, %v Bronze Trophies, Total: %v\n",
