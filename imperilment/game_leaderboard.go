@@ -29,6 +29,7 @@ func (b *GameLeaderBoardEntry) String() string {
         "%s, %s: Position: %v, Ratio: %v/%v, Total: %v",
         b.User.First_Name,
         b.User.Last_Name,
+        b.Position,
         correct,
         answers,
         b.Total,

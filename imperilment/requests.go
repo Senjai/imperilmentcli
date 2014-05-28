@@ -17,6 +17,11 @@ func (e *Engine) GetMoneyLeaderBoard() (board []LeaderBoardEntry, ok bool) {
     return board, ok
 }
 
+func (e *Engine) GetGameLeaderBoard() (board []GameLeaderBoardEntry, ok bool) {
+    ok = e.getBoard(e.GameLeaderBoardUrl, &board)
+    return board, ok
+}
+
 func (e *Engine) getBoard(url string, board interface{}) (ok bool) {
     response, err := http.Get(url)
     if err != nil {
@@ -26,8 +31,8 @@ func (e *Engine) getBoard(url string, board interface{}) (ok bool) {
     defer response.Body.Close()
 
     body, _ := ioutil.ReadAll(response.Body)
-
     json.Unmarshal(body, board)
+
     return true
 }
 
